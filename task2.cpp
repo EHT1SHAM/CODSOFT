@@ -1,15 +1,15 @@
 #include<iostream>
 using namespace std;
-float sum(int a,int b){
+float sum(float a,float b){
     return a+b;
 }
-float sub(int a,int b){
+float sub(float a,float b){
     return a-b;
 }
-float mul(int a,int b){
+float mul(float a,float b){
     return a*b;
 }
-float divide(int a,int b){
+float divide(float a,float b){
     return a/b;
 }
 
