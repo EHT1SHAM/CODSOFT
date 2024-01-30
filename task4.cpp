@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 class node
 {
@@ -37,6 +38,8 @@ void print(node *head)
         cout << head->task << " " << head->status << endl;
         head = head->next;
     }
+    cout << endl;
+    return;
 }
 void deletetask(node *&head, string task)
 {
@@ -79,23 +82,26 @@ int main()
     node *head = NULL;
 
     while (true)
-    {
-        cout << "1. Add task" << endl;
+    {cout<<"\033[31m"
+        << "1. Add task" << endl;
         cout << "2. Delete task" << endl;
 
         cout << "3. Print task" << endl;
         cout << "4. change status" << endl;
-        cout << "5. Exit" << endl;
+        cout << "5. Exit" <<"\033[0m"   << endl;
         int choice;
         cin >> choice;
+        cin.ignore();
         if (choice == 1)
         {
             string task, status;
             cout << "Enter task: ";
-            cin >> task;
+          getline(cin, task); // getline(cin, task
             cout << "Enter status: ";
-            cin >> status;
+
+            getline(cin, status);
             addtask(head, task, status);
+            continue;
         }
         else if (choice == 2)
         {
@@ -103,10 +109,13 @@ int main()
             cout << "Enter task: ";
             cin >> task;
             deletetask(head, task);
+            continue;
         }
         else if (choice == 3)
         {
             print(head);
+            continue;
+
         }
         else if (choice == 4)
         {
@@ -116,6 +125,7 @@ int main()
             cout << "Enter status: ";
             cin >> status;
             changestatus(head, task, status);
+            continue;
         }
         else if (choice == 5)
         {
